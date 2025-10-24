@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Monk Traders Network</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+      transition: opacity 1s ease;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      text-align: center;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+
+    nav a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 0 1rem;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1624996379671-bc3f9e4c60f3?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      animation: zoom 20s ease-in-out infinite alternate;
+      filter: brightness(0.4);
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: gold;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .motto {
+      margin-top: 2rem;
+      font-style: italic;
+      font-weight: 500;
+      color: #d4af37;
+    }
+
+    .cta-btn {
+      margin-top: 2.5rem;
+      padding: 1rem 2.5rem;
+      background-color: gold;
+      color: black;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      transition: 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    section {
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: gold;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    /* ===== SLIDESHOW ===== */
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      transition: opacity 1s ease;
+    }
+
+    .active-slide {
+      display: block;
+    }
+
+    .slide-buttons {
+      margin-top: 1rem;
+    }
+
+    .prev, .next {
+      background-color: gold;
+      border: none;
+      color: black;
+      padding: 0.7rem 1.5rem;
+      margin: 0 0.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: #fff;
+    }
+
+    .dots {
+      margin-top: 1rem;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #555;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: gold;
+    }
+
+    .contact {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      background: #111;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .slide img {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="https://t.me/+PSZ9LgOgy4YyOGM0" target="_blank">Join</a>
+  </nav>
+
+  <header>
+    <div>
+      <h1>The Monk Traders Network</h1>
+      <p>At The Monk Traders Network, our mission is to raise a new generation of disciplined and well-trained traders who can create wealth, impact their communities, and build lasting financial legacies.</p>
+      <p class="motto">Discipline, Patience, Profit — The Monk Way</p>
+      <a href="https://t.me/+PSZ9LgOgy4YyOGM0" target="_blank">
+        <button class="cta-btn">Join Now</button>
+      </a>
+    </div>
+  </header>
+
+  <section id="gallery">
+    <h2>Trading Gallery</h2>
+    <p>Some of our trade analyses and results from The Monk Traders Network community.</p>
+
+    <div class="slideshow-container">
+      <div class="slide active-slide"><img src="image1.jpg" alt="Slide 1"></div>
+      <div class="slide"><img src="image2.jpg" alt="Slide 2"></div>
+      <div class="slide"><img src="image3.jpg" alt="Slide 3"></div>
+      <div class="slide"><img src="image4.jpg" alt="Slide 4"></div>
+      <div class="slide"><img src="image5.jpg" alt="Slide 5"></div>
+      <div class="slide"><img src="image6.jpg" alt="Slide 6"></div>
+      <div class="slide-buttons">
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
+      </div>
+
+      <div class="dots"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>The Monk Traders Network is a growing community of traders dedicated to mastering the art and discipline of forex. Through mentorship, live sessions, and shared strategies, we help traders become independent, confident, and profitable.</p>
+
+    <div class="contact">
+      <h3>For more enquiry contact:</h3>
+      <p>📞 09021428848</p>
+      <p>📞 +2347025988733</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 The Monk Traders Network. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+    const dotsContainer = document.querySelector(".dots");
+    let index = 0;
+    let autoSlide;
+
+    function showSlide(n) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active-slide");
+        dotsContainer.children[i].classList.remove("active");
+      });
+      slides[n].classList.add("active-slide");
+      dotsContainer.children[n].classList.add("active");
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+
+    slides.forEach(() => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      dotsContainer.appendChild(dot);
+    });
+
+    dotsContainer.children[0].classList.add("active");
+
+    next.addEventListener("click", () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+    prev.addEventListener("click", () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    function startAutoSlide() {
+      autoSlide = setInterval(nextSlide, 5000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      startAutoSlide();
+    }
+
+    startAutoSlide();
+  </script>
+</body>
+</html>
